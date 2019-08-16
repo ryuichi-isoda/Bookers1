@@ -1,0 +1,29 @@
+<div style="color: green;">
+  <% if flash[:notice] %>
+    <%= flash[:notice] %>
+  <% end %>
+</div>
+
+
+<h1>Editing Book</h1>
+<!-- form_for部分 -->
+<%= form_for(@book) do |f| %>
+  <div class="field">
+    <label>Title</label>
+    <div class="book_title">
+      <%= f.text_field :title %>
+    </div>
+  </div>
+
+  <div class="field">
+    <label>Body</label>
+    <div class="book_body">
+      <%= f.text_area :body %>
+    </div>
+  </div>
+  <div class="actions">
+    <%= f.submit 'Update' %>
+  </div>
+
+  <p><%= link_to 'Show', book_path(@book.id) %>|<%= link_to 'Back', books_path %></p>
+<% end %>
